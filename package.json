@@ -6,6 +6,11 @@
   "author": "Tim Hinz <tim@chargeover.com>",
   "license": "MIT",
   "scripts": {
+    "lint": "concurrently 'yarn lint:style' 'yarn lint:js'",
+    "lint:fix": "concurrently 'yarn lint:style' 'yarn lint:js:fix'",
+    "lint:js": "eslint --ext \".js,.vue,.ts\" --ignore-path .gitignore .",
+    "lint:js:fix": "eslint --ext \".js,.vue,.ts\" --fix --ignore-path .gitignore .",
+    "lint:style": "stylelint \"**/*.{css,scss,sass,vue}\" --ignore-path .gitignore",
     "prepare": "husky install"
   },
   "devDependencies": {
