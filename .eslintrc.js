@@ -13,11 +13,13 @@ module.exports = {
   parserOptions: {
     parser: '@babel/eslint-parser',
     requireConfigFile: false,
+    ecmaVersion: 2021,
   },
   env: {
     es2021: true,
     browser: true,
     node: true,
+    jest: true,
   },
   extends: [
     'plugin:tailwindcss/recommended',
@@ -37,6 +39,7 @@ module.exports = {
       files: 'packages/api/**/*',
       rules: {
         'no-console': 'off',
+        'no-param-reassign': 'off',
       },
     },
   ],
