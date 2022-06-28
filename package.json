@@ -47,6 +47,6 @@
   },
   "lint-staged": {
     "*.{js,vue}": "eslint --ignore-path .gitignore --cache --fix",
-    "*.{css,scss,sass,html}": "stylelint --ignore-path .gitignore --cache --fix --allow-empty-input"
+    "*.{css,scss,sass}": "stylelint --ignore-path .gitignore --cache --fix --allow-empty-input"
   }
 }
