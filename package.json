@@ -24,11 +24,16 @@
     "eslint-plugin-tailwindcss": "^3.5.2",
     "eslint-plugin-vue": "^9.1.1",
     "husky": "^8.0.1",
+    "lint-staged": "^13.0.2",
     "prettier": "^2.7.1",
     "stylelint": "^14.9.1",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-recommended-vue": "^1.4.0",
     "stylelint-config-standard": "^26.0.0",
     "stylelint-config-tailwindcss": "^0.0.3"
+  },
+  "lint-staged": {
+    "*.{js,vue}": "eslint --cache --fix",
+    "*.{css,scss,sass,html,vue}": "stylelint --cache --fix"
   }
 }
