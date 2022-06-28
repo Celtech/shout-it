@@ -42,9 +42,6 @@ export default {
       type: Boolean,
       default: true,
     },
-    radius: {
-      type: String,
-    },
   },
   emits: ['callback'],
   mounted() {
@@ -57,9 +54,6 @@ export default {
     script.setAttribute('data-userpic', this.userpic);
     script.setAttribute('data-telegram-login', this.telegramLogin);
     script.setAttribute('data-request-access', this.requestAccess);
-    if (this.radius) {
-      script.setAttribute('data-radius', this.radius);
-    }
 
     if (this.mode === 'callback') {
       window.onTelegramAuth = this.onTelegramAuth;
