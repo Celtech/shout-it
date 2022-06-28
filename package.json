@@ -43,7 +43,8 @@
     "stylelint-config-recommended-vue": "^1.4.0",
     "stylelint-config-sass-guidelines": "^9.0.1",
     "stylelint-config-standard": "^26.0.0",
-    "stylelint-config-tailwindcss": "^0.0.3"
+    "stylelint-config-tailwindcss": "^0.0.3",
+    "stylelint-no-unsupported-browser-features": "^5.0.3"
   },
   "lint-staged": {
     "*.{js,vue}": "eslint --ignore-path .gitignore --cache --fix",
