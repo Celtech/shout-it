@@ -208,12 +208,6 @@ dist
 #
 # Recommended template: Node.gitignore
 
-# TODO: where does this rule come from?
-docs/_book
-
-# TODO: where does this rule come from?
-test/
-
 ### Windows template
 # Windows thumbnail cache files
 Thumbs.db
@@ -334,3 +328,35 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# IDEs and editors (shamelessly copied from @angular/cli's .gitignore)
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+
+### Linux ###
+
+# temporary files which can be created if a process still has a handle open of a deleted file
+.fuse_hidden*
+
+# KDE directory preferences
+.directory
+
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+
+# .nfs files are created when an open file is removed but is still being accessed
+.nfs*
+
+### OSX ###
+*.DS_Store
+
+# Folder config file
+Desktop.ini
+
+# Others
+lib/
+data/
