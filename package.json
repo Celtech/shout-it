@@ -5,6 +5,9 @@
   "main": "index.js",
   "author": "Tim Hinz <tim@chargeover.com>",
   "license": "MIT",
+  "scripts": {
+    "prepare": "husky install"
+  },
   "devDependencies": {
     "@babel/core": "^7.18.5",
     "@babel/eslint-parser": "^7.18.2",
@@ -20,6 +23,7 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-tailwindcss": "^3.5.2",
     "eslint-plugin-vue": "^9.1.1",
+    "husky": "^8.0.1",
     "prettier": "^2.7.1",
     "stylelint": "^14.9.1",
     "stylelint-config-prettier": "^9.0.3",
