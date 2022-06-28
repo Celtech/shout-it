@@ -4,5 +4,20 @@
   "description": "Telegram sales and CRM bot",
   "main": "index.js",
   "author": "Tim Hinz <tim@chargeover.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.18.5",
+    "@babel/eslint-parser": "^7.18.2",
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-plugin-tailwindcss": "^3.5.2",
+    "eslint-plugin-vue": "^9.1.1",
+    "prettier": "^2.7.1"
+  }
 }
