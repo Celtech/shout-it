@@ -25,6 +25,7 @@ module.exports = {
     'plugin:vue/vue3-recommended',
     'airbnb',
     'prettier',
+    'plugin:compat/recommended',
   ],
   plugins: ['prettier', 'tailwindcss'],
   rules: {
