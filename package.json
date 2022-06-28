@@ -5,6 +5,10 @@
   "main": "index.js",
   "author": "Tim Hinz <tim@chargeover.com>",
   "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "lint": "concurrently 'yarn lint:style' 'yarn lint:js'",
     "lint:fix": "concurrently 'yarn lint:style' 'yarn lint:js:fix'",
@@ -30,6 +34,7 @@
     "eslint-plugin-tailwindcss": "^3.5.2",
     "eslint-plugin-vue": "^9.1.1",
     "husky": "^8.0.1",
+    "lerna": "^5.1.6",
     "lint-staged": "^13.0.2",
     "prettier": "^2.7.1",
     "stylelint": "^14.9.1",
