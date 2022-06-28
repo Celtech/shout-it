@@ -1,0 +1,8 @@
+{
+  "name": "shout-it",
+  "version": "1.0.0",
+  "description": "Telegram sales and CRM bot",
+  "main": "index.js",
+  "author": "Tim Hinz <tim@chargeover.com>",
+  "license": "MIT"
+}
