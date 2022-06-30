@@ -1,14 +1,14 @@
 version: "3.9"
 services:
   api:
-    image: registry.gitlab.com/shoutit/shoutit/api:latest
+    image: shoutitbot/api:latest
     container_name: shoutit-api
     networks:
       - shoutit-internal
       - shoutit-external
 
   app:
-    image: registry.gitlab.com/shoutit/shoutit/app:latest
+    image: shoutitbot/app:latest
     container_name: shoutit-app
     networks:
       - shoutit-internal
