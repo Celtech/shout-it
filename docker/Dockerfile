@@ -8,6 +8,9 @@ RUN apt-get update \
 USER node
 
 
+FROM nginx:1.23.0-alpine AS nginx
+
+
 FROM node AS api_base
 COPY --chown=node:node package*.json yarn*.lock ./
 COPY --chown=node:node ./packages/api/package.json ./packages/api/package.json
@@ -56,7 +59,7 @@ COPY --chown=node:node ./packages/app ./
 RUN yarn build
 
 
-FROM nginx:alpine AS app
+FROM nginx AS app
 COPY ./docker/conf/nginx/nginx.conf /etc/nginx/nginx.conf
 RUN rm -rf /usr/share/nginx/html/*
 COPY --from=app_builder /app/packages/app/dist /usr/share/nginx/html
