@@ -8719,10 +8719,10 @@ stylelint-config-standard@^26.0.0:
   dependencies:
     stylelint-config-recommended "^8.0.0"
 
-stylelint-config-tailwindcss@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/stylelint-config-tailwindcss/-/stylelint-config-tailwindcss-0.0.3.tgz#1a0c6189bb29fc1955471f4899caf2123b8c267e"
-  integrity sha512-ySWWjAUTiDu6p+q2zrewAhPlBpxTiFN/D/gZ8sjetU/NJ8OyI7iXLCAewUvirsbe9Um+jXFpz7DI85FXaXaa6A==
+stylelint-config-tailwindcss@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/stylelint-config-tailwindcss/-/stylelint-config-tailwindcss-0.0.6.tgz#0b1048cd0c6b00faf366f75c98abb8f43a952c93"
+  integrity sha512-ymqhRR0Ob7vZmMHkgkBZk2H1PO7Z+yRLxv/c3RpKavdVJNlXEdkabaDVkHaE4Zp37Y9LlpBfWYHX23Xl8HVvIw==
 
 stylelint-no-unsupported-browser-features@^5.0.3:
   version "5.0.3"
