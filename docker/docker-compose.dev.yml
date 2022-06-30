@@ -1,0 +1,55 @@
+version: "3.9"
+services:
+  api:
+    container_name: shoutit-api
+    build:
+      dockerfile: 'docker/Dockerfile'
+      context: '..'
+      target: api_dev
+    restart: always
+    ports:
+      - "3001:3001"
+    volumes:
+      - '../packages/api:/app/packages/api'
+
+  app:
+    container_name: shoutit-app
+    build:
+      dockerfile: 'docker/Dockerfile'
+      context: '..'
+      target: app_dev
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - '../packages/app:/app/packages/app'
+
+  mariadb:
+    image: mariadb:10.3.17
+    container_name: shoutit-mariadb
+    restart: always
+    expose:
+      - "3306"
+    networks:
+      - shoutit-internal
+    volumes:
+      - shoutit-mariadb:/var/lib/mysql
+      - ./conf/mariadb/my.cnf:/etc/mysql/my.cnf
+    environment:
+      TZ: "America/Chicago"
+      MYSQL_ALLOW_EMPTY_PASSWORD: "no"
+      MYSQL_ROOT_PASSWORD: "password"
+      MYSQL_USER: 'dev'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_DATABASE: 'shoutit_dev'
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "--silent" ]
+
+networks:
+  shoutit-internal:
+    driver: bridge
+  shoutit-external:
+    driver: bridge
+
+volumes:
+  shoutit-mariadb:
