@@ -34,14 +34,14 @@ ARG VCS_REF
 ARG BUILD_VERSION
 LABEL org.label-schema.schema-version="1.0"
 LABEL org.label-schema.build-date=$BUILD_DATE
-LABEL org.label-schema.name="shout-it/api"
+LABEL org.label-schema.name="shoutitbot/api"
 LABEL org.label-schema.description="Feather.js Express backend API for Shout It Telegram bot management"
 LABEL org.label-schema.url="https://shoutit.io/"
 LABEL org.label-schema.vcs-url="https://github.com/Celtech/shout-it"
 LABEL org.label-schema.vcs-ref=$VCS_REF
 LABEL org.label-schema.vendor="Shout It Ltd."
 LABEL org.label-schema.version=$BUILD_VERSION
-LABEL org.label-schema.docker.cmd="docker run -p 3001:3001 -d shout-it/api"
+LABEL org.label-schema.docker.cmd="docker run -p 3001:3001 -d shoutitbot/api"
 WORKDIR /app/packages/api
 COPY --chown=node:node ./packages/api ./
 EXPOSE 3001
@@ -78,14 +78,14 @@ ARG VCS_REF
 ARG BUILD_VERSION
 LABEL org.label-schema.schema-version="1.0"
 LABEL org.label-schema.build-date=$BUILD_DATE
-LABEL org.label-schema.name="shout-it/app"
+LABEL org.label-schema.name="shoutitbot/app"
 LABEL org.label-schema.description="Vue 3 frontend web application for Shout It Telegram bot management"
 LABEL org.label-schema.url="https://shoutit.io/"
 LABEL org.label-schema.vcs-url="https://github.com/Celtech/shout-it"
 LABEL org.label-schema.vcs-ref=$VCS_REF
 LABEL org.label-schema.vendor="Shout It Ltd."
 LABEL org.label-schema.version=$BUILD_VERSION
-LABEL org.label-schema.docker.cmd="docker run -p 3000:3000 -d shout-it/app"
+LABEL org.label-schema.docker.cmd="docker run -p 3000:3000 -d shoutitbot/app"
 COPY ./docker/conf/nginx/nginx.conf /etc/nginx/nginx.conf
 RUN rm -rf /usr/share/nginx/html/*
 COPY --from=app_builder /app/packages/app/dist /usr/share/nginx/html
