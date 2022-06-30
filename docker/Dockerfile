@@ -29,6 +29,19 @@ HEALTHCHECK CMD curl --fail http://127.0.0.1:3001 || exit 1
 
 
 FROM api_base AS api
+ARG BUILD_DATE
+ARG VCS_REF
+ARG BUILD_VERSION
+LABEL org.label-schema.schema-version="1.0"
+LABEL org.label-schema.build-date=$BUILD_DATE
+LABEL org.label-schema.name="shout-it/api"
+LABEL org.label-schema.description="Feather.js Express backend API for Shout It Telegram bot management"
+LABEL org.label-schema.url="https://shoutit.io/"
+LABEL org.label-schema.vcs-url="https://github.com/Celtech/shout-it"
+LABEL org.label-schema.vcs-ref=$VCS_REF
+LABEL org.label-schema.vendor="Shout It Ltd."
+LABEL org.label-schema.version=$BUILD_VERSION
+LABEL org.label-schema.docker.cmd="docker run -p 3001:3001 -d shout-it/api"
 WORKDIR /app/packages/api
 COPY --chown=node:node ./packages/api ./
 EXPOSE 3001
