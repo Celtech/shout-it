@@ -19,6 +19,8 @@
     "docker:up": "docker compose -f docker/docker-compose.yml -f docker/docker-compose.dev.yml -p shoutit up -d --build --force-recreate",
     "docker:down": "docker compose -p shoutit down",
     "docker:restart": "yarn docker:down && yarn docker:up",
+    "docker:build": "concurrently --timings --group -c blue,green -n app,api 'yarn docker:build:app' 'yarn docker:build:api'",
+    "docker:build:dev": "concurrently --timings -c blue,green -n app-dev,api-dev 'yarn docker:build:app:dev' 'yarn docker:build:api:dev'",
     "docker:build:api": "docker build --target api -t registry.gitlab.com/shoutit/shoutit/api:latest -f docker/Dockerfile . --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') --build-arg VCS_REF=$(git rev-parse --short HEAD) --build-arg BUILD_VERSION=latest",
     "docker:build:api:dev": "docker build --target api_dev -t registry.gitlab.com/shoutit/shoutit/api:latest -f docker/Dockerfile .",
     "docker:build:app": "docker build --target app -t registry.gitlab.com/shoutit/shoutit/app:latest -f docker/Dockerfile . --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') --build-arg VCS_REF=$(git rev-parse --short HEAD) --build-arg BUILD_VERSION=latest",
