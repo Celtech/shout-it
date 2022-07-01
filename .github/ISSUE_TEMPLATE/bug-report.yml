@@ -34,7 +34,7 @@ body:
         - Web App
         - Telegram Bot
     validations:
-      required: false
+      required: true
   - type: dropdown
     id: browsers
     attributes:
@@ -60,7 +60,7 @@ body:
         - ChromeOS
         - Other
     validations:
-      required: false
+      required: true
   - type: textarea
     id: logs
     attributes:
