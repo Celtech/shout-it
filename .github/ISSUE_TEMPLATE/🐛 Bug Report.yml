@@ -1,0 +1,87 @@
+name: 🐛 Bug Report
+description: File a bug report
+title: "[Bug]: "
+labels: ["Type::Bug", "Priority::High", "Status::Needs Discussion"]
+assignees:
+  - Celtech
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Also tell us, what did you expect to happen?
+      placeholder: When I tried to do X, Y happened instead...
+    validations:
+      required: true
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: How can we reproduce this?
+      description: Being as detailed as possible here really helps us
+      placeholder: Do X, Y, Z.
+    validations:
+      required: true
+  - type: dropdown
+    id: location
+    attributes:
+      label: Where did this error occur?
+      multiple: false
+      options:
+        - Web App
+        - Telegram Bot
+    validations:
+      required: false
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: What browsers are you seeing the problem on?
+      multiple: true
+      options:
+        - Firefox
+        - Chrome
+        - Safari
+        - Microsoft Edge
+        - N/a
+    validations:
+      required: false
+  - type: dropdown
+    id: os
+    attributes:
+      label: What operating systems are you seeing the problem on?
+      multiple: true
+      options:
+        - MacOS
+        - Windows
+        - Linux
+        - ChromeOS
+        - Other
+    validations:
+      required: false
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      render: shell
+    validations:
+      required: false
+  - type: textarea
+    id: possible-solution
+    attributes:
+      label: Do you have a solution to propose?
+      description: Optional fix in the code if you feel like going above and beyond
+      placeholder: Tell us what you see!
+      render: javascript
+    validations:
+      required: false
+  - type: textarea
+    id: other
+    attributes:
+      label: Anything else you want to share?
+      description: Use this to share screenshots, thoughts, ideas, etc
+    validations:
+      required: false
