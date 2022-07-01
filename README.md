@@ -25,8 +25,8 @@
   <a href="#">About</a> •
   <a href="#quick-start">Quick Start</a> •
   <a href="#">Deployment</a> •
-    <a href="#">Contributing Guidelines</a> •
-  <a href="#">License</a>
+    <a href="https://github.com/Celtech/shout-it/blob/main/CONTRIBUTING.md">Contributing Guidelines</a> •
+  <a href="https://github.com/Celtech/shout-it/blob/main/LICENSE.md">License</a>
 </div>
 
 ## About
