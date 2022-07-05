@@ -1,0 +1,23 @@
+name: Run unit tests
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    # Steps to complete the job
+    steps:
+      - name: Checking out code from the repository
+        uses: actions/checkout@v3
+
+      - name: Setting up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: |
+          yarn install --frozen-lockfile
+
+      - name: Test with Jest
+        run: |
+          yarn test
