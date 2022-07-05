@@ -2,7 +2,7 @@ FROM node:18-bullseye-slim AS node
 WORKDIR /app
 ENV NODE_ENV=production
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends tini python3 make g++ \
+    && apt-get install -y --no-install-recommends tini python3 make g++ wget \
     && rm -rf /var/lib/apt/lists/* \
     && chown -R node:node /app
 USER node
