@@ -1,1 +1,5 @@
-{}
+{
+  "port": 3002,
+  "mysql": "sqlite::memory:",
+  "dbDialect": "sqlite"
+}
