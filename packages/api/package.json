@@ -24,7 +24,7 @@
     "yarn": ">= 0.18.0"
   },
   "scripts": {
-    "test": "jest --forceExit",
+    "test": "jest --forceExit --silent=false --verbose=true  --testTimeout=10000",
     "dev": "nodemon src/",
     "start": "node src/"
   },
