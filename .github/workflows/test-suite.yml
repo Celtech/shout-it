@@ -18,6 +18,10 @@ jobs:
         run: |
           yarn install --frozen-lockfile
 
+      - name: Lint code
+        run: |
+          yarn lint
+
       - name: Test with Jest
         run: |
           yarn test
