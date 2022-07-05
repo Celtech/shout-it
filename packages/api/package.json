@@ -24,11 +24,9 @@
     "yarn": ">= 0.18.0"
   },
   "scripts": {
-    "test": "yarn run lint && yarn run jest",
-    "lint": "eslint src/. test/. --config .eslintrc.json --fix",
+    "test": "jest --forceExit",
     "dev": "nodemon src/",
-    "start": "node src/",
-    "jest": "jest --forceExit"
+    "start": "node src/"
   },
   "standard": {
     "env": [
