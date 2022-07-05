@@ -10,6 +10,7 @@
     "packages/*"
   ],
   "scripts": {
+    "test": "lerna run test --stream",
     "lint": "concurrently -c blue,green -n StyleLint,ESLint 'yarn lint:style' 'yarn lint:js'",
     "lint:fix": "concurrently 'yarn lint:style:fix' 'yarn lint:js:fix'",
     "lint:js": "eslint --ext \".js,.vue,.ts\" --ignore-path .gitignore .",
