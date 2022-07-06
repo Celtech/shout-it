@@ -40,6 +40,8 @@ jobs:
           CC_TEST_REPORTER_ID: ${{ secrets.CODE_CLIMATE_COVERAGE }}
         with:
           coverageCommand: yarn test:coverage
+          coverageLocations: |
+            ${{github.workspace}}/**/*.lcov:lcov
   build-app:
     name: Build and publish App
     runs-on: ubuntu-latest
