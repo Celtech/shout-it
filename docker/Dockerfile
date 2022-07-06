@@ -98,8 +98,15 @@ LABEL org.label-schema.vendor="Shout It Ltd."
 LABEL org.label-schema.version=$BUILD_VERSION
 LABEL org.label-schema.docker.cmd="docker run -p 3000:3000 -d shoutitbot/app"
 COPY ./docker/conf/nginx/nginx.conf /etc/nginx/nginx.conf
-RUN rm -rf /usr/share/nginx/html/*
-COPY --from=app_builder /app/packages/app/dist /usr/share/nginx/html
+RUN rm -rf /usr/share/nginx/html/* && \
+    chown -R nginx:nginx /usr/share/nginx/html && chmod -R 755 /usr/share/nginx/html && \
+    chown -R nginx:nginx /var/cache/nginx && \
+    chown -R nginx:nginx /var/log/nginx && \
+    chown -R nginx:nginx /etc/nginx/conf.d
+RUN touch /var/run/nginx.pid && \
+    chown -R nginx:nginx /var/run/nginx.pid
+USER nginx
+COPY --chown=nginx:nginx --from=app_builder /app/packages/app/dist /usr/share/nginx/html
 EXPOSE 3000
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
 HEALTHCHECK CMD curl --fail http://127.0.0.1:3000 || exit 1
