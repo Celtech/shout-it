@@ -6,7 +6,9 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/* \
     && chown -R node:node /app \
     && chmod u-s /sbin/unix_chkpwd \
-    && chmod u-g /sbin/unix_chkpwd
+    && chmod u-g /sbin/unix_chkpwd \
+    && chmod u-s /bin/umount \
+    && chmod u-g /bin/umount
 USER node
 
 
