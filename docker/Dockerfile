@@ -4,7 +4,9 @@ ENV NODE_ENV=production
 RUN apt-get update \
     && apt-get install -y --no-install-recommends tini \
     && rm -rf /var/lib/apt/lists/* \
-    && chown -R node:node /app
+    && chown -R node:node /app \
+    && chmod u-s /sbin/unix_chkpwd \
+    && chmod u-g /sbin/unix_chkpwd
 USER node
 
 
