@@ -1,10 +1,9 @@
 name: Run unit tests
 on: [push]
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    # Steps to complete the job
+  test:
+    name: Tests & Linting
+    runs-on: ubuntu-20.04
     steps:
       - name: Checking out code from the repository
         uses: actions/checkout@v3
@@ -25,3 +24,18 @@ jobs:
       - name: Test with Jest
         run: |
           yarn test
+  build-app:
+    name: Build and publish App
+    runs-on: ubuntu-20.04
+    needs: [ test ]
+    env:
+      REPO: shoutitbot/app
+    steps:
+      - uses: actions/checkout@v3
+      - name: Login to Docker Hub
+        run: docker login -u ${{ secrets.DOCKER_USER }}
+          -p ${{ secrets.DOCKER_PASS }}
+      - name: Build App Docker image
+        run: docker build --target app -t shoutitbot/app:latest -f docker/Dockerfile . --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') --build-arg VCS_REF=$(git rev-parse --short HEAD) --build-arg BUILD_VERSION=latest
+      - name: Publish App Docker image
+        run: docker push $REPO
