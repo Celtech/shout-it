@@ -25,6 +25,7 @@
   },
   "scripts": {
     "test": "NODE_ENV=test jest --forceExit --silent=false --verbose=true  --testTimeout=10000",
+    "test:coverage": "NODE_ENV=test jest --forceExit --silent=false --verbose=true  --testTimeout=10000 --coverage",
     "dev": "nodemon src/",
     "start": "node src/"
   },
