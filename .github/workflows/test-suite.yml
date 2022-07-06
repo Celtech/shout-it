@@ -41,7 +41,7 @@ jobs:
         with:
           coverageCommand: yarn test:coverage
           coverageLocations: |
-            ${{github.workspace}}/**/*.lcov:lcov
+            ${{github.workspace}}/packages/api/coverage/lcov.info:lcov
   build-app:
     name: Build and publish App
     runs-on: ubuntu-latest
