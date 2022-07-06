@@ -2,7 +2,17 @@ FROM node:18-bullseye-slim AS node
 WORKDIR /app
 ENV NODE_ENV=production
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends tini python3 make g++ wget \
+    && apt-get install -y --no-install-recommends tini \
+    && rm -rf /var/lib/apt/lists/* \
+    && chown -R node:node /app
+USER node
+
+
+FROM node:18-bullseye-slim AS node_builder
+WORKDIR /app
+ENV NODE_ENV=production
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends tini python3 make g++ \
     && rm -rf /var/lib/apt/lists/* \
     && chown -R node:node /app
 USER node
@@ -11,7 +21,7 @@ USER node
 FROM nginx:1.23.0-alpine AS nginx
 
 
-FROM node AS api_base
+FROM node_builder AS api_base
 COPY --chown=node:node package*.json yarn*.lock ./
 COPY --chown=node:node ./packages/api/package.json ./packages/api/package.json
 RUN yarn install --frozen-lockfile --production && yarn cache clean --force
@@ -28,7 +38,7 @@ CMD ["node_modules/.bin/nodemon", "src/"]
 HEALTHCHECK CMD curl --fail http://127.0.0.1:3001 || exit 1
 
 
-FROM api_base AS api
+FROM node AS api
 ARG BUILD_DATE
 ARG VCS_REF
 ARG BUILD_VERSION
@@ -44,6 +54,7 @@ LABEL org.label-schema.version=$BUILD_VERSION
 LABEL org.label-schema.docker.cmd="docker run -p 3001:3001 -d shoutitbot/api"
 WORKDIR /app/packages/api
 COPY --chown=node:node ./packages/api ./
+COPY --chown=node:node --from=api_base /app/node_modules /app/node_modules
 EXPOSE 3001
 ENTRYPOINT ["/usr/bin/tini", "--"]
 CMD ["node", "src/"]
