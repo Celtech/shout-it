@@ -2,7 +2,7 @@ name: Main workflow
 on:
   push:
     branches:
-      - 'main'
+      - '*'
 jobs:
   test:
     name: Tests & Linting
@@ -103,3 +103,19 @@ jobs:
             BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ')
             VCS_REF=$(git rev-parse --short HEAD)
             BUILD_VERSION=latest
+  app-container-scan:
+    name: App Container Scan
+    runs-on: ubuntu-latest
+    needs: [build-app]
+    steps:
+      - uses: azure/container-scan@v0
+        with:
+          image-name: shoutitbot/app:latest
+  api-container-scan:
+      name: API Container Scan
+      runs-on: ubuntu-latest
+      needs: [build-api]
+      steps:
+        - uses: azure/container-scan@v0
+          with:
+            image-name: shoutitbot/api:latest
