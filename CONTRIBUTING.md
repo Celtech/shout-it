@@ -5,13 +5,12 @@ be followed when working with any projects in Shout It ecosystem.
 
 ## Terminology
 
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL
-NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and
-"OPTIONAL" in this document are to be interpreted as described in
-[RFC 2119][5].
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
+"SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be
+interpreted as described in [RFC 2119][5].
 
-The term `merge request` and `pull request` are used interchangeably
-for the purposes of this document.
+The term `merge request` and `pull request` are used interchangeably for the
+purposes of this document.
 
 ## GitHub flow
 
@@ -34,13 +33,13 @@ track you down later for more information. When possible you should practice
 [user stories and acceptance criteria][2] to set clear requirements.
 
 Remember, even if you aren't contributing code, opening feature requests,
-reporting bugs, or even just discussing ideas are all ways to make this
-project better.
+reporting bugs, or even just discussing ideas are all ways to make this project
+better.
 
 ## Commit messages
 
-We follow the [Conventional Commit Specification][3] with a few
-additional requirements.
+We follow the [Conventional Commit Specification][3] with a few additional
+requirements.
 
 ```text
 <type>(<scope>): <subject>
@@ -54,7 +53,7 @@ additional requirements.
 
 - Breaking changes must include a `!` in the subject and `BREAKING CHANGE:` in
   the footer as described by [the specification][4]
-- The scope property MUST be set to the package being worked on, or left blank 
+- The scope property MUST be set to the package being worked on, or left blank
   when working outside of packages
 
 ## Merge requests
@@ -80,11 +79,12 @@ to maintain projects.
 - [JavaScript Style Guide][6]
 - [Markdown Style Guide][7]
 
-[1]: https://docs.github.com/en/get-started/quickstart/github-flow#following-github-flow
+[1]:
+  https://docs.github.com/en/get-started/quickstart/github-flow#following-github-flow
 [2]: https://www.softwaretestinghelp.com/user-story-acceptance-criteria/
 [3]: https://www.conventionalcommits.org/en/v1.0.0/
 [4]:
-https://www.conventionalcommits.org/en/v1.0.0/#commit-message-with-both--and-breaking-change-footer
+  https://www.conventionalcommits.org/en/v1.0.0/#commit-message-with-both--and-breaking-change-footer
 [5]: https://datatracker.ietf.org/doc/html/rfc2119
 [6]: https://github.com/airbnb/javascript/blob/master/README.md
 [7]: https://google.github.io/styleguide/docguide/style.html

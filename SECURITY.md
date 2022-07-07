@@ -2,15 +2,14 @@
 
 ## Supported Versions
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 1.x.x   | ✔ |
+| Version | Supported |
+| ------- | --------- |
+| 1.x.x   | ✔         |
 
 ## Reporting a Vulnerability
 
 To report a security vulnerability please email
-[timhinz16@gmail.com](mailto:timhinz16@gmail.com) using
-the template below.
+[timhinz16@gmail.com](mailto:timhinz16@gmail.com) using the template below.
 
 ### Template
 
