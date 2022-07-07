@@ -2,14 +2,12 @@ version: "3.9"
 services:
   api:
     image: shoutitbot/api:latest
-    container_name: shoutit-api
     networks:
       - shoutit-internal
       - shoutit-external
 
   app:
     image: shoutitbot/app:latest
-    container_name: shoutit-app
     networks:
       - shoutit-internal
       - shoutit-external
