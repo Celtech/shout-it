@@ -1,23 +1,17 @@
-FROM node:18-bullseye-slim AS node
+FROM node:18.4.0-alpine AS node
 WORKDIR /app
 ENV NODE_ENV=production
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends tini \
-    && rm -rf /var/lib/apt/lists/* \
-    && chown -R node:node /app \
-    && chmod u-s /sbin/unix_chkpwd \
-    && chmod u-g /sbin/unix_chkpwd \
-    && chmod u-s /bin/umount \
-    && chmod u-g /bin/umount
+RUN apk update \
+    && apk add -y --no-cache tini \
+    && chown -R node:node /app
 USER node
 
 
-FROM node:18-bullseye-slim AS node_builder
+FROM node:18.4.0-alpine AS node_builder
 WORKDIR /app
 ENV NODE_ENV=production
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends tini python3 make g++ \
-    && rm -rf /var/lib/apt/lists/* \
+RUN apk update \
+    && apk add -y --no-cache tini python3 make g++ \
     && chown -R node:node /app
 USER node
 
