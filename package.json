@@ -13,8 +13,10 @@
     "clean": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +",
     "test": "lerna run test --stream",
     "test:coverage": "lerna run test:coverage --stream",
-    "lint": "concurrently -c blue,green -n StyleLint,ESLint 'yarn lint:style' 'yarn lint:js'",
-    "lint:fix": "concurrently 'yarn lint:style:fix' 'yarn lint:js:fix'",
+    "lint": "concurrently -c blue,green,red -n StyleLint,ESLint,Markdownlint 'yarn lint:style' 'yarn lint:js' 'yarn lint:markdown'",
+    "lint:fix": "concurrently -c blue,green,red -n StyleLint,ESLint,Markdownlint 'yarn lint:style:fix' 'yarn lint:js:fix' 'yarn lint:markdown:fix'",
+    "lint:markdown": "prettier --prose-wrap always --check \"**/*.md\" && markdownlint --ignore-path .gitignore .",
+    "lint:markdown:fix": "prettier --prose-wrap always --write \"**/*.md\" && markdownlint --fix --ignore-path .gitignore .",
     "lint:js": "eslint --ext \".js,.vue,.ts\" --ignore-path .gitignore .",
     "lint:js:fix": "eslint --ext \".js,.vue,.ts\" --fix --ignore-path .gitignore .",
     "lint:style": "stylelint \"**/*.{css,scss,sass}\" --ignore-path .gitignore --allow-empty-input",
@@ -50,6 +52,8 @@
     "husky": "^8.0.1",
     "lerna": "^5.1.6",
     "lint-staged": "^13.0.2",
+    "markdownlint": "^0.26.0",
+    "markdownlint-cli": "^0.31.1",
     "postcss": "^8.4.14",
     "postcss-html": "^1.4.1",
     "prettier": "^2.7.1",
@@ -64,6 +68,10 @@
   },
   "lint-staged": {
     "*.{js,vue}": "eslint --ignore-path .gitignore --cache --fix",
-    "*.{css,scss,sass}": "stylelint --ignore-path .gitignore --cache --fix --allow-empty-input"
+    "*.{css,scss,sass}": "stylelint --ignore-path .gitignore --cache --fix --allow-empty-input",
+    "*.{md,mdx}": [
+      "prettier --prose-wrap always --write",
+      "markdownlint --fix --ignore-path .gitignore"
+    ]
   }
 }
