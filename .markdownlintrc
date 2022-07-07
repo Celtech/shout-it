@@ -1,0 +1,17 @@
+{
+  "MD013": {
+    "line_length": 80,
+    "heading_line_length": 80,
+    "code_block_line_length": 80,
+    "code_blocks": false,
+    "tables": false,
+    "headings": true,
+    "headers": true,
+    "strict": false,
+    "stern": false
+  },
+  "MD033": {
+    "allowed_elements": ["div", "img", "h1", "span", "p", "strong", "hr", "a", "br"]
+  },
+  "MD041": false
+}
